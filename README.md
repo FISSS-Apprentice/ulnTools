@@ -2,8 +2,7 @@
 
 
 ULN (Unique Learner Number) tools to validate a uln as per the specification at 
-
-[https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/710270/ULN_validation.pdf]
+https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/710270/ULN_validation.pdf
 
 
 Usage:
