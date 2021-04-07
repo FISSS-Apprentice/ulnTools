@@ -20,15 +20,24 @@ then use in a file
 
 use UlnTools\UlnValidation;
 
-$testResult = false;
+$testUln=1000102504;
 try {
-    $testResult = UlnValidation::validate($testUln);
-    } catch (Exception $e) {
-    
+    if(UlnValidation::validate($testUln)){
+        echo "ULN is valid";
+    }
+} catch (Exception $e) {
+    echo $e->getMessage() ."\n";
 }
 
-if ($testResult) {
-    echo "ULN is valid";
+// too few digits
+$testUln=100010250;
+try {
+    if(UlnValidation::validate($testUln)){
+        echo "ULN is valid";
+    }
+} 
+catch (Exception $e) {
+    echo $e->getMessage() ."\n";
 }
 
 ```
