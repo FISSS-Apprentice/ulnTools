@@ -10,14 +10,9 @@ final class UlnValidationTest extends TestCase
     // known valid uln
     public function testValidUln(): void
     {
-        $testUln = 100010250;
-        try {
-            $testResult = UlnValidation::validate($testUln);
-        } catch (Exception $e) {
-        }
-
+        $testUln = 1000102504;
+        $testResult = UlnValidation::validate($testUln);
         $this->assertTrue($testResult);
-
     }
 
     // must be exactly 10 digits
@@ -47,7 +42,8 @@ final class UlnValidationTest extends TestCase
     {
         $testUln = 'string';
 
-        $this->expectException(TypeError::class);
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('not numeric');
         $testResult = UlnValidation::validate ($testUln);
         $this->assertFalse($testResult);
     }

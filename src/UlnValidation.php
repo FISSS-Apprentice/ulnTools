@@ -19,12 +19,12 @@ class UlnValidation
      * 4. Subtract the remainder from 10. If this number is greater than 0 and matches the
      * tenth digit from the entered ULN, the ULN format is valid.
      *
-     * @param int $uln
+     * @param $uln
      *
      * @return bool
      * @throws Exception
      */
-    public static function validate(int $uln): bool
+    public static function validate($uln): bool
     {
         $uln = trim($uln);
         // uln must only contain a number
