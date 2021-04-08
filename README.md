@@ -17,27 +17,34 @@ then use in a file
 
 ```php
 <?php
-
+require 'vendor/autoload.php'; // require composer dependencies
 use UlnTools\UlnValidation;
 
 $testUln=1000102504;
+$ulnValid = false;
+$errorMessage = '';
 try {
-    if(UlnValidation::validate($testUln)){
-        echo "ULN is valid";
-    }
+    $ulnValid = UlnValidation::validate($testUln);
 } catch (Exception $e) {
-    echo $e->getMessage() ."\n";
+    $errorMessage = $e->getMessage() ."\n";
+}
+
+if (!$ulnValid) {
+    die('uln is not valid '.$errorMessage);
 }
 
 // too few digits
 $testUln=100010250;
+$ulnValid = false;
+$errorMessage = '';
 try {
-    if(UlnValidation::validate($testUln)){
-        echo "ULN is valid";
-    }
-} 
-catch (Exception $e) {
-    echo $e->getMessage() ."\n";
+    $ulnValid = UlnValidation::validate($testUln);
+} catch (Exception $e) {
+    $errorMessage = $e->getMessage() ."\n";
+}
+
+if (!$ulnValid) {
+    die('uln is not valid '.$errorMessage);
 }
 
 ```
